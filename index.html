@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Localyze</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Mapbox CSS -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- SPLASH -->
+  <section class="screen active" id="splash">
+    <div class="logo">LOCALYZE</div>
+    <p class="tagline">
+      Verified, Real-Time Local Intelligence<br>
+      <span>Powered by Humans • Secured by Technology</span>
+    </p>
+  </section>
+
+  <!-- INTRO -->
+  <section class="screen" id="intro">
+    <div class="carousel">
+      <div class="slide active">Search engines don’t know what’s happening <b>right now</b>.</div>
+      <div class="slide">Local humans verify ground reality in real time.</div>
+      <div class="slide">Every report is geo-verified, time-stamped, and accountable.</div>
+    </div>
+    <button onclick="goToRole()">Get Started</button>
+  </section>
+
+  <!-- ROLE -->
+  <section class="screen" id="role">
+    <h2>Choose Your Role</h2>
+    <div class="role-grid">
+      <div class="role-card" onclick="selectRole('seeker')">🔍<br>I Need Information</div>
+      <div class="role-card" onclick="selectRole('validator')">🛡<br>I Verify Information</div>
+    </div>
+  </section>
+
+  <!-- AUTH -->
+  <section class="screen" id="auth">
+    <h2 id="authTitle"></h2>
+    <input placeholder="Full Name">
+    <input placeholder="Phone Number">
+    <input placeholder="City / Area">
+    <input type="file">
+    <button onclick="submitAuth()">Continue</button>
+    <p class="note">Device & identity will be permanently linked</p>
+  </section>
+
+  <!-- TRUST -->
+  <section class="screen" id="trust">
+    <h2>Verification in Progress</h2>
+    <p>Your identity and device are being verified.</p>
+  </section>
+
+  <!-- MAP -->
+  <section class="screen" id="mapScreen">
+    <div id="map"></div>
+    <div class="map-overlay">
+      <div class="pill">🟢 Live Presence Active</div>
+    </div>
+    <div class="trust-panel">
+      Trust Score: <span id="trustScore">0</span>
+    </div>
+    <div class="request-box">
+      <input id="reqTitle" placeholder="What do you need verified?" />
+      <select id="reqCategory">
+        <option>Hospital</option>
+        <option>Street / Road</option>
+        <option>Shop / Restaurant</option>
+        <option>Public Notice</option>
+      </select>
+      <button onclick="handleCreateRequest()">Create Request</button>
+    </div>
+  </section>
+
+</div>
+
+<!-- External libs -->
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+
+<!-- Core UI logic -->
+<script src="script.js"></script>
+
+<!-- Feature logic (order matters) -->
+<script src="request.js"></script>
+<script src="map.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+type User @table {
+  authId: String!
+  displayName: String!
+  userType: String! # SEEKER, VALIDATOR
+  isVerified: Boolean!
+  createdAt: Timestamp!
+  email: String
+  photoUrl: String
+  bio: String
+}
+
+type Request @table {
+  title: String!
+  description: String!
+  category: String! # HOSPITAL, STREET, SHOP, TOURIST_PLACE, NEWS, PUBLIC_PROTOCOLS, HIGHWAYS, OTHER
+  latitude: Float!
+  longitude: Float!
+  status: String! # PENDING, ACCEPTED, COMPLETED, CANCELLED
+  createdAt: Timestamp!
+  expiresAt: Timestamp!
+  imageUrls: [String]
+  seeker: User
+}
+
+type Report @table {
+  content: String!
+  latitude: Float!
+  longitude: Float!
+  createdAt: Timestamp!
+  imageUrls: [String]
+  validatorNotes: String
+  validator: User
+  request: Request
+}
+
+type Rating @table {
+  score: Int!
+  createdAt: Timestamp!
+  comment: String
+  seeker: User
+  validator: User
+  report: Report
+}
+
+type ValidatorTrustScore @table {
+  score: Float!
+  lastUpdatedAt: Timestamp!
+  validator: User
+}
+
+type SubscriptionType @table {
+  name: String!
+  price: Float!
+  duration: String! # MONTHLY, ANNUAL
+  createdAt: Timestamp!
+  description: String
+  features: [String]
+}
+
+type UserSubscription @table {
+  startDate: Timestamp!
+  endDate: Timestamp!
+  status: String! # ACTIVE, CANCELED, EXPIRED
+  createdAt: Timestamp!
+  autoRenew: Boolean
+  user: User
+  subscriptionType: SubscriptionType
+}

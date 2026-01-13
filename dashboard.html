@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Validator Dashboard | Localyze</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<header>
+  <h1>Validator Control Panel</h1>
+  <span id="trustBadge">Trust: 0</span>
+</header>
+
+<main class="grid">
+
+  <section class="card">
+    <h3>Earnings</h3>
+    <div class="big">₹ <span id="earnings">0</span></div>
+  </section>
+
+  <section class="card">
+    <h3>Job Stats</h3>
+    <p>Completed: <span id="completed">0</span></p>
+    <p>Pending: <span id="pending">0</span></p>
+  </section>
+
+  <section class="card">
+    <h3>Active Jobs</h3>
+    <ul id="jobList"></ul>
+  </section>
+
+  <section class="card">
+    <h3>GPS Footprint (Last Sessions)</h3>
+    <ul id="gpsHistory"></ul>
+  </section>
+
+</main>
+
+<footer>
+  <button onclick="reportSeeker()">Report Fake Seeker</button>
+</footer>
+
+<script src="trust.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

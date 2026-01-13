@@ -1,0 +1,26 @@
+{
+  "emulators": {
+    "auth": {
+      "host": "localhost",
+      "port": 9110
+    },
+    "firestore": {
+      "host": "localhost",
+      "port": 8085
+    },
+    "database": {
+      "host": "localhost",
+      "port": 9010
+    },
+    "dataconnect": {
+      "host": "localhost",
+      "port": 9405
+    },
+    "ui": {
+      "enabled": true,
+      "host": "localhost",
+      "port": 4001
+    }
+  }
+}
+

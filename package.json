@@ -1,0 +1,13 @@
+{
+  "name": "localyze",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "testFirebase.js",
+  "scripts": {
+    "start": "node testFirebase.js"
+  },
+  "dependencies": {
+    "firebase": "^10.7.0"
+  }
+}
+
